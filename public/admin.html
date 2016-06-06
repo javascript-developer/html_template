@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> 
+<![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> 
+<![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>Compass Responsive Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="templatemo">
+    <!-- 
+    Compass Template
+    http://www.templatemo.com/tm-454-compass
+    -->
+    <meta charset="UTF-8">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS Bootstrap & Custom -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/templatemo-misc.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/templatemo-main.css">
+        
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    
+    <!-- JavaScripts -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular.route.js"></script>
+    <script src="js/modernizr.js"></script>
+    <!--[if lt IE 8]>
+	<div style=' clear: both; text-align:center; position: relative;'>
+            <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+        </div>
+    <![endif]-->
+</head>
+<body>
+    
+    <div id="home">
+        <div class="site-header">
+            <div class="top-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="left-header">
+                                <span><i class="fa fa-phone"></i>080 080 0990</span>
+                                <span><i class="fa fa-envelope"></i>info@company.com</span>
+                            </div> <!-- /.left-header -->
+                        </div> <!-- /.col-md-6 -->
+                        <div class="col-md-6 col-sm-6">
+                            <div class="right-header text-right">
+                                <ul class="social-icons">
+                                   <!--  <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-instagram"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-google-plus"></a></li> -->
+                                </ul>
+                            </div> <!-- /.left-header -->
+                        </div> <!-- /.col-md-6 -->
+                    </div> <!-- /.row -->
+                </div> <!-- /.container -->
+            </div> <!-- /.top-header -->
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <h1><a href="#" title="Dreri">Admin</a></h1>
+                            </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                       
+                    </div> <!-- /.row -->
+             
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+
+    
+
+    <div ng-app="app"  id="contact" class="section-cotent">
+        <div ng-view>
+
+
+
+        </div>
+    </div> <!-- /#contact -->
+
+    <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <p>Copyright &copy; 2084 Company Name</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/jquery.lightbox.js"></script>
+    <script src="js/custom.js"></script>
+   
+    <script type="text/javascript">
+            var app = angular.module('app',['ngRoute']);
+           
+            app.factory('admin',function($http){
+                var ob ={
+                  login :function(adminData){
+                       var promise = $http({method : 'POST', url:'/login', data   : { admin : adminData} });
+                       promise.success(function(data,status,header){
+                            return data;
+                       });
+                       return promise;
+                   }
+                };
+                return ob;
+            });
+
+            app.config(function($routeProvider){
+                $routeProvider
+                .when('/',{
+                    templateUrl : '/templates/admin_login.html',
+                    controller  : 'adminLogin'
+                })
+                .when('/dashboard',{
+                    templateUrl : '/templates/admin_dashboard.html',
+                    controller  : 'adminDasboard',
+                    resolve     : {
+                        loginStatus : function(admin){
+                            console.log(admin.isLoggedIn)
+                            return admin.login;
+                        }
+                    } 
+
+                })
+            });
+
+
+            app.controller('adminLogin', function($scope,admin){
+                $scope.admin = {};
+                $scope.msg="";
+               
+
+                $scope.submitData = function(){
+                   admin.login($scope.admin).then(function(res){
+                    if(res.data.success){
+                        $scope.msg = "Login Success";
+                        admin.isLoggedIn = true;
+                        window.location.href = "#/dashboard";
+                    }
+                    else
+                    {
+                        $scope.msg = "Login Failed !";
+                    }
+
+                   });
+                }
+            });
+
+            app.controller('adminDasboard', function($scope,$http){
+                        
+                    $scope.newUsersList =  [];
+                    $scope.deletedUsersList =[];
+                    function getUsers(){
+                            $http({
+                                method : 'GET',
+                                url    :  '/userinfo'
+                            }).success(function(res){
+                                if(res.success){
+                                      res.users.forEach(function(ob){
+                                        if(ob.status=='Deleted')
+                                        {
+                                            $scope.deletedUsersList.push(ob);
+                                        }
+                                        else if(ob.status=='New'){
+                                            $scope.newUsersList.push(ob);
+                                        }
+                                    })
+                                      console.dir($scope.newUsersList);
+                                }
+                                else{
+
+                                    alert('Some Error Occured !');
+                                }
+                            })  
+                    }getUsers();
+
+                    $scope.deleteUser = function(id){
+                         var confirm = window.confirm("Delete user info, Are you sure ?.");
+                            if(confirm){
+                                $http({
+                                    method : 'PUT',
+                                    url    : '/userinfo/delete',
+                                    data   : { doc_id : id}
+                                })
+                                .success(function(res){
+                                    getUsers();
+                                });
+                            }
+                            else
+                            {
+
+                            }
+
+                    }
+            });
+    </script>
+
+
+</body>
+</html>

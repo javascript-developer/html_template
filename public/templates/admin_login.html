@@ -1,0 +1,30 @@
+<div class="container" style="margin-top: 50px;">
+            <div class="title-section text-center">
+                <h2>Admin Login</h2>
+                <span></span>
+            </div> <!-- /.title-section -->
+            <div class="row">
+            <div style="margin: 0 auto; width: 50%;">
+                <div class="col-md-12 col-sm-12">
+                    
+                    <div class="contact-form">
+                       <form ng-submit="submitData()">
+                        <p class="full-row">
+                            <label for="name-id">Username</label>
+                            <input type="text" ng-model="admin.username" id="name-id" name="name-id" required>
+                        </p>
+                        <p class="full-row">
+                            <label for="email-id">Password</label>
+                            <input type="password" ng-model="admin.password" id="email-id" name="email-id" required>
+                        </p>
+                        <p class="full-row" id="msg" >
+                        {{msg}}
+                        </p>
+                        <input class="mainBtn" type="submit" name="btn" value="Login">
+                        </form>
+                    </div>
+                </div> <!-- /.col-md-3 -->
+                </div>
+               
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->

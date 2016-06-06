@@ -1,0 +1,129 @@
+<div class="container">
+            <div class="title-section text-center">
+               <a href onclick="location.reload();" >  <h2>Users List</h2> </a>
+                <span></span>
+            </div> <!-- /.title-section -->
+            <div class="row">
+            <div style="margin: 0 auto; width: 80%;">
+                <div class="col-md-12 col-sm-12">
+                    	<!-- ##################333 -->
+                    	<div id="exTab2" class="container">	
+						<ul class="nav nav-tabs">
+									<li class="active">
+						        <a  href="/#1" data-toggle="tab">New ({{newUsersList.length}})</a>
+									</li>
+									<li><a href="/#2" data-toggle="tab">Viewed(0)</a>
+									</li>
+									<li><a href="/#3" data-toggle="tab">Deleted ({{deletedUsersList.length}})</a>
+									</li>
+								</ul>
+
+									<div class="tab-content ">
+									  <div class="tab-pane active" id="1">
+						         		<div ng-repeat = "u in newUsersList | orderBy:'':true" >
+                    	<div class="panel-group">
+					    <div class="panel panel-default">
+					      <div class="panel-heading">{{$index+1}}. {{u.name}}</div>
+					      <div > 
+
+					      <table class="table">
+					      <tr><td style="width:77%;border-right :1px solid #DDDDDD;border-bottom :1px solid #DDDDDD;">Message</td> <td style="width:30%;border-bottom :1px solid #DDDDDD;">Status</td></tr>
+					      <tr> 
+					      	<td style="width:70%;border-right :1px solid #DDDDDD;border-bottom :1px solid #DDDDDD;">
+					      	<br>
+					      		<b>Email   : </b> {{u.email}}<br><br>
+					      		<b>Subject : </b> {{u.subject}} <br><br>
+					      		<b>Message : </b><br><br> {{u.message}}	     
+					      	</td>
+
+					      	<td style="width:30%;border-bottom :1px solid #DDDDDD;">
+					      		<br>Date    : {{u.date}}<br>
+					      		<br>Status  : {{u.status}}<br>
+					      		<br><a href style="text-decoration: none; color:red"  ng-click="deleteUser(u._id);"> Delete  </a>
+					      	</td>
+
+
+					      </tr>
+
+					      </table>
+					              
+					      </div>
+					    </div>
+					    <br>
+					    </div>
+					            </div> <!-- /.col-md-3 -->
+
+
+				</div>
+				<div class="tab-pane" id="3">
+         		
+						<!--############### D E L E T E D  ######################-->
+					<div ng-repeat = "u in deletedUsersList | orderBy:'':true" >
+                    	<div class="panel-group">
+					    <div class="panel panel-default">
+					      <div class="panel-heading">{{$index+1}}. {{u.name}}</div>
+					      <div > 
+
+					      <table class="table">
+					      <tr><td style="width:77%;border-right :1px solid #DDDDDD;border-bottom :1px solid #DDDDDD;">Message</td> <td style="width:30%;border-bottom :1px solid #DDDDDD;">Status</td></tr>
+					      <tr> 
+					      	<td style="width:70%;border-right :1px solid #DDDDDD;border-bottom :1px solid #DDDDDD;">
+					      	<br>
+					      		<b>Email   : </b> {{u.email}}<br><br>
+					      		<b>Subject : </b> {{u.subject}} <br><br>
+					      		<b>Message : </b><br><br> {{u.message}}	     
+					      	</td>
+
+					      	<td style="width:30%;border-bottom :1px solid #DDDDDD;">
+					      		<br>Date    : {{u.date}}<br>
+					      		<br>Status  : {{u.status}}<br>
+					      	</td>
+
+
+					      </tr>
+
+					      </table>
+					              
+					      </div>
+					    </div>
+					    <br>
+					    </div>
+					            </div>
+								<!--#####################################-->
+					</div>
+
+
+					<div class="tab-pane" id="2">
+					        <h3>add clearfix to tab-content (see the css)</h3>
+							</div>
+					    	</div>
+				     </div>
+
+                   	<!-- ######################3 -->
+                		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             </div>
+               
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
