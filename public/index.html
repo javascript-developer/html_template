@@ -10,10 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="templatemo">
-    <!-- 
-    Compass Template
-    http://www.templatemo.com/tm-454-compass
-    -->
+   
     <meta charset="UTF-8">
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -33,6 +30,7 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/modernizr.js"></script>
+    <script src="js/angular.route.js"></script>
     <!--[if lt IE 8]>
 	<div style=' clear: both; text-align:center; position: relative;'>
             <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
@@ -81,7 +79,7 @@
                                     <li><a href="#portfolio">Portfolio</a></li>
                                     <li><a href="#about">About</a></li>
                                     <li><a href="#contact">Contact</a></li>
-                                    <li><a href="http://www.facebook.com/templatemo" class="external">External</a></li>
+                                    <li><a href="/booking.html" class="external">Book Now</a></li>
                                 </ul>
                             </div> <!-- /.menu -->
                         </div> <!-- /.col-md-8 -->
@@ -430,7 +428,14 @@
         window.onload = loadScript;
     </script>
     <script type="text/javascript">
-            var app = angular.module('app',[]);
+            var app = angular.module('app',['ngRoute']);
+            app.config(function($routeProvider){
+                $routeProvider
+                .when('/course_booking',{
+                    templateUrl : '',
+                    controller  : ''
+                })
+            });          
             app.controller('mainController', function($scope,$http){
                 $scope.user = {};
                 $scope.msg="";

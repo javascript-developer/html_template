@@ -12,31 +12,75 @@
     <meta charset="UTF-8">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+     
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- CSS Bootstrap & Custom -->
+    
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/templatemo-misc.css">
-    <link rel="stylesheet" href="css/animate.css">
+
+      <link rel="stylesheet" href="css/materialcss.css">
     <link rel="stylesheet" href="css/templatemo-main.css">
+  
         
     <!-- Favicons -->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
-    
+    <style>
+        .input-field input[type=text]:focus + label {
+             color: #E3722E;
+           }
+        .input-field input[type=password]:focus + label {
+             color: #E3722E;
+           }
+
+        .input-field input[type=email]:focus + label {
+             color: #E3722E;
+           }  
+        
+        /* textarea.materialize-textarea:focus:not([readonly])+label 
+            textarea.materialize-textarea:focus:not([readonly])
+        */
+       
+        .input-field input[type=text]:focus {
+                 border-bottom: 1px solid #E3722E;
+                 box-shadow: 0 1px 0 0 #E3722E;
+               }
+        .input-field input[type=password]:focus {
+                 border-bottom: 1px solid #E3722E;
+                 box-shadow: 0 1px 0 0 #E3722E;
+               }
+       .input-field input[type=email]:focus {
+                 border-bottom: 1px solid #E3722E;
+                 box-shadow: 0 1px 0 0 #E3722E;
+               }
+
+
+ 
+        .dropdown-content li>span {
+            color: #E3722E;
+        }
+
+        .select-wrapper span.caret {
+            visibility: hidden; 
+        }
+
+       /* .picker__date-display {
+            background-color: #E3722E;
+         }*/
+    </style>
     <!-- JavaScripts -->
-    <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular.route.js"></script>
+
     </head>
 <body>
     
-    <div id="home">
+  <div id="home">
         <div class="site-header">
             <div class="top-header">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <div class="left-header">
+                            <div class="left-header" style="margin-left: -30%;">
                                 <span><i class="fa fa-phone"></i>080 080 0990</span>
                                 <span><i class="fa fa-envelope"></i>info@company.com</span>
                             </div> <!-- /.left-header -->
@@ -57,8 +101,8 @@
             <div class="main-header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 col-sm-4 col-xs-6">
-                            <div class="logo">
+                        <div class="col-md-4 col-sm-4 col-xs-6" style="margin-left: -5%;">
+                            <div class="logo" >
                                 <h1><a href="#" title="Dreri">Admin</a></h1>
                             </div> <!-- /.logo -->
                         </div> <!-- /.col-md-4 -->
@@ -69,10 +113,9 @@
             </div> <!-- /.header -->
         </div> <!-- /.site-header -->
     </div> <!-- /#home -->
-
     
 
-    <div ng-app="app"  id="contact" class="section-cotent">
+    <div ng-app="app"  id="contact" class="section-cotent" style="margin-top: 5%;">
         <div ng-view>
 
 
@@ -98,11 +141,17 @@
         </div> <!-- /.container -->
     </div> <!-- /.site-footer -->
 
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular.route.js"></script>
+    <script src="js/materialize.min.js"> </script>
+     
     <script src="js/plugins.js"></script>
-     <script src="js/custom.js"></script>
+    <script src="js/jquery.lightbox.js"></script>
+    <script src="js/custom.js"></script>
  
-   
+  
     <script type="text/javascript">
             var app = angular.module('app',['ngRoute']);
            
@@ -120,23 +169,23 @@
             });
 
             app.config(function($routeProvider){
-                $routeProvider
-                .when('/',{
-                    templateUrl : '/templates/administrator/admin_login.html',
-                    controller  : 'adminLogin'
-                })
-                .when('/dashboard',{
-                    templateUrl : '/templates/administrator/admin_dashboard.html',
-                    controller  : 'adminDasboard',
-                    resolve     : {
-                        loginStatus : function(admin){
-                            console.log(admin.isLoggedIn)
-                            return admin.login;
-                        }
-                    } 
+                    $routeProvider
+                    .when('/',{
+                        templateUrl : '/templates/course_booking/book.html',
+                       
+                    })
+                    .when('/dashboard',{
+                        templateUrl : '/templates/administrator/admin_dashboard.html',
+                        controller  : 'adminDasboard',
+                        resolve     : {
+                            loginStatus : function(admin){
+                                console.log(admin.isLoggedIn)
+                                return admin.login;
+                            }
+                        } 
 
-                })
-            });
+                    })
+                 });
 
 
             app.controller('adminLogin', function($scope,admin){
