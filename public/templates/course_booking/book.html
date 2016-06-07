@@ -9,92 +9,91 @@
 	                <div class="col-md-12 col-sm-12">
 	           			 <!--#################### F O R M ##################-->
 			  			
-						                   
-						            
-                                      <form name="userform" class="col s12" >
-								      <div class="row">
-								        <div class="input-field col s6">
-								          <input id="first_name" type="text" name="fname" ng-minlength="2" ng-maxlength="15" onblur="toogleCase(this);" ng-required="true">
-								          <label for="first_name">First Name</label>
-								        
-								        <div ng-show="userform.fname.$invalid">  
-								          <label> Invalid Name </label>
+						    <!-- http://www.codingcage.com/2015/03/html5-form-validations-with-pattern.html  -->               
+			            
+          <form name="userform" class="col s12" >
+	      <div class="row" >
+	        <div class="input-field col s6">
+	          <input id="first_name" type="text" name="fname" minlength="2" maxlength="20" onblur="toogleCase(this);"  class="validate" pattern="[A-Za-z]+">
+	           <label for="first_name" data-error="First name seems wrong." data-success="">First Name</label>
+	        </div>
+	        
+	        <div class="input-field col s6">
+	          <input id="last_name" type="text" minlength="2" maxlength="20"  onblur="toogleCase(this);" class="validate" pattern="[A-Za-z]+">
+	          <label for="last_name" data-error="Last name seems wrong." data-success="">Last Name</label>
+	        </div>
 
-								          {{userform.fname}}
-								        </div>
+	      </div>
 
-								        </div>
-								        <div class="input-field col s6">
-								          <input id="last_name" type="text" class="validate" onblur="toogleCase(this);">
-								          <label for="last_name">Last Name</label>
-								        </div>
-								      </div>
-								      <div class="row">
-								        <div class="input-field col s6">
-								          <input type="number" class="validate">
-								          <label for="disabled">Mobile</label>
-								        </div>
-								      
-								        <div class="input-field col s6">
-								          <input id="email" type="email" class="validate">
-								          <label for="email">Email</label>
-								        </div>
-								      </div>
-								      <div class="row">
-								        <div class="input-field col s12">
-								          <input id="email" type="email" class="validate">
-								          <label for="email">Email</label>
-								        </div>
-								      </div>
+
+	      <div class="row">
+	        <div class="input-field col s6">
+	          <input type="text" pattern="^\d{10}$" id="mobile" class="validate" minlength="10" maxlength="10" >
+	         <label for="mobile" data-error="Mobile number seems wrong." data-success="">Mobile</label>
+	        </div>
+	      
+	        <div class="input-field col s6">
+	          <input id="email" type="email" onblur="this.value=this.value.toLowerCase();" class="validate">
+	         <label for="email" data-error="Email seems wrong." data-success="">Email</label>
+	        </div>
+	      </div>
+	      <div class="row">
+	        <div class="input-field col s12">
+	          <input id="email" type="email" class="validate">
+	          <label for="email">Email</label>
+	        </div>
+	      </div>
 
 
 
-								       <div class="row">
-								        <div class="input-field col s12">								  
-										    <select multiple>
-										      <option value="" disabled selected>Choose your option</option>
-										      <option >C</option>
-										      <option >C++</option>
-										      <option >HTML, CSS, Javascript</option>
-										      <option >Javascript, Angular JS</option>
-										      <option >PHP, Wordpress</option>
-							  								      
-										    </select>
-										    
-										</div>
-										</div>
+	       <div class="row">
+	        <div class="input-field col s12">								  
+			    <select multiple>
+			      <option value="" disabled selected>Choose your option</option>
+			      <option >C</option>
+			      <option >C++</option>
+			      <option >HTML, CSS</option>
+			       <option>Javascript</option>
+			      <option >Angular JS</option>
+			      <option >PHP</option>
+			      <option>Wordpress</option>
+  								      
+			    </select>
+			    
+			</div>
+			</div>
 
 
-								      <div class="row">
-								        <div class="input-field col s12">
-									    	 <textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
-            <label for="textarea1">Textarea</label>
-										    
-									  </div>
-									  </div>
+	      <div class="row">
+	        <div class="input-field col s12">
+		    	 <textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
+<label for="textarea1">Textarea</label>
+			    
+		  </div>
+		  </div>
 
-									 
+		 
 
 
-									  	 <div class="row">
-								        <div class="input-field col s12">
-										 	  <input type="date" class="datepicker" id="dob">
-										 	  <label for="dob" >Dob </label>
-										 	 
-										  </div></div>
-
+		  	 <div class="row">
+	        <div class="input-field col s12">
+			 	  <input type="date" class="datepicker" id="dob">
+			 	  <label for="dob" >Dob </label>
+			 	 
+			  </div></div>
 
 
 
 
-								      <div class="row">
-								        <div class="input-field col s12">
-								          <button class="btn waves-effect waves-light" type="submit" name="action" style="background-color: #E3722E;">Submit
-										    
-										  </button>
-								        </div>
-								      </div>
-								    </form>
+
+	      <div class="row">
+	        <div class="input-field col s12">
+	          <button class="btn waves-effect waves-light" type="submit" name="action" style="background-color: #E3722E;">Submit
+			    
+			  </button>
+	        </div>
+	      </div>
+	    </form>
 
 						 <!--#################### / F O R M  ##################-->
 					</div>
@@ -123,7 +122,8 @@
            function toogleCase(element){
            	  var start = element.value[0];
            	  var end   = element.value.toLowerCase().slice(1); 
-           	  element.value = start.toUpperCase() + end;
-           	 	
+           	  element.value = start.toUpperCase() + end;       	 	
             }
+
+
    </script>
