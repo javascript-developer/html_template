@@ -368,11 +368,11 @@
                        <form ng-submit="submitData()">
                         <p class="full-row">
                             <label for="name-id">Your Name:</label>
-                            <input type="text" ng-model="user.name" id="name-id" name="name-id" required>
+                            <input type="text" ng-model="user.name" id="name-id" name="name-id" onblur="toggleCase(this);" required>
                         </p>
                         <p class="full-row">
                             <label for="email-id">Email:</label>
-                            <input type="email" ng-model="user.email" id="email-id" name="email-id" required>
+                            <input type="email" ng-model="user.email" id="email-id" name="email-id" onblur="this.value=this.value.toLowerCase();" required>
                         </p>
                         <p class="full-row">
                             <label for="subject-id">Subject:</label>
@@ -452,6 +452,26 @@
         }
 
         window.onload = loadScript;
+
+            function toggleCase(ob) {
+            if(ob!=undefined || ob!=""){
+                var arr = ob.value.split(' ');
+                var name = ""
+                arr.forEach(function(a){
+                    
+                    var start = a[0];
+                    var end = a.toLowerCase().slice(1); 
+                    if(start!=undefined){
+                        name+=(start.toUpperCase() + end+" "); 
+                    }
+
+                });
+                ob.value=name.slice(0, name.length-1);
+            }
+            }
+
+
+
     </script>
     <script type="text/javascript">
             var app = angular.module('app',['ngRoute']);
