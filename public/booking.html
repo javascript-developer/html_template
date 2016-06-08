@@ -64,6 +64,29 @@
         .select-wrapper span.caret {
             visibility: hidden; 
         }
+        .top-header {
+                padding: 7px 0px 0px 0px;
+         }
+
+         .userform {
+            margin: 0 auto;
+            width: 80%;
+         }
+
+         .main-header {
+                position: absolute;
+            }
+         @media only screen and (max-width: 500px) {
+            .top-header {
+                padding: 10px 0px 0px 60px;
+            }
+            .main-header {
+                position: absolute;
+            }
+            .userform {
+                width: 100%;
+            }
+        }
 
        /* .picker__date-display {
             background-color: #E3722E;
@@ -83,6 +106,7 @@
                             <div class="left-header" style="margin-left: -30%;">
                                 <span><i class="fa fa-phone"></i>080 080 0990</span>
                                 <span><i class="fa fa-envelope"></i>info@company.com</span>
+
                             </div> <!-- /.left-header -->
                         </div> <!-- /.col-md-6 -->
                         <div class="col-md-6 col-sm-6">
@@ -104,9 +128,18 @@
                         <div class="col-md-4 col-sm-4 col-xs-6" style="margin-left: -5%;">
                             <div class="logo" >
                                 <h1><a href="#" title="Dreri">Admin</a></h1>
+
+
                             </div> <!-- /.logo -->
                         </div> <!-- /.col-md-4 -->
-                       
+                       <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right">
+                                <ul>
+                                                                
+                                    <li>  <h1><a href onclick="window.location.href='/'" > Back </a></h1></li>
+                                </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
                     </div> <!-- /.row -->
              
                 </div> <!-- /.container -->
@@ -115,7 +148,7 @@
     </div> <!-- /#home -->
     
 
-    <div ng-app="app"  id="contact" class="section-cotent" style="margin-top: 5%;">
+    <div ng-app="app"  id="contact" class="section-cotent" style="margin-top: 3%;">
         <div ng-view>
 
 

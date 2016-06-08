@@ -109,7 +109,8 @@ h1, h2, h3, h4, h5, h6 {
 .top-header {
   background: #e3722e;
   color: white;
-  padding: 10px 0;
+  padding: 10px 0;*/
+  
 }
 .top-header .left-header span {
   display: inline-block;
@@ -195,6 +196,7 @@ h1, h2, h3, h4, h5, h6 {
 .responsive-menu .toggle-menu {
   font-size: 24px;
   color: #e3722e;
+
 }
 .responsive-menu .menu {
   display: none;

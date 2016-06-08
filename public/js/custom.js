@@ -32,15 +32,18 @@ jQuery(document).ready(function($){
 		animationLoop: true,
 		slideshow  :	true,
 		controlNav : false,
+		slideshowSpeed : 3000,
+		pauseOnAction :false,
+		pauseOnHover : true,
 		nextText : '',
 		prevText : '',
 	});
 
-	$('.flex-caption').addClass('animated bounceInLeft');
-
+	 $('.flex-caption').addClass('animated slide');
+	//fadeInUp
 	$('.flex-direction-nav a').on('click', function() {
-        $('.flex-caption').removeClass('animated bounceInLeft');
-        $('.flex-caption').fadeIn(0).addClass('animated bounceInLeft');
+        $('.flex-caption').removeClass('animated slide');
+        $('.flex-caption').fadeIn(0).addClass('animated slide');
     });
 
 
@@ -71,6 +74,18 @@ jQuery(document).ready(function($){
         $('.menu').stop(true,true).toggle();
         return false;
     });
+
+	$('#area').click(function(){
+       // if($(".menu").css("display")=="block"){
+        $(".menu").css("display","none");
+       // // };
+       // console.log($(".menu").css("display"));
+       // console.log($(".menu").css("display")=="block");
+
+       //$(".menu").css("display","block");
+    });
+
+
     $(".responsive-menu .menu a").click(function(){
         $('.responsive-menu .menu').hide();
     });

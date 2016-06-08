@@ -25,7 +25,33 @@
         
     <!-- Favicons -->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
-    
+    <style type="text/css">
+       
+        @media only screen and (max-width: 500px) {
+            .main-header {
+                position: absolute;
+            }
+           
+            .flexslider .slides img {
+                height: 190px;
+            }
+            .flex-caption{
+                display:block !important;
+            }
+             .flex-caption h2 {
+                font-size: 15px;
+                
+              }
+              .flex-caption p {
+                font-size: 8px;
+                line-height: 15px;
+                margin: 0 auto;
+              }
+
+        }
+
+
+    </style>
     <!-- JavaScripts -->
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/angular.min.js"></script>
@@ -52,12 +78,12 @@
                         </div> <!-- /.col-md-6 -->
                         <div class="col-md-6 col-sm-6">
                             <div class="right-header text-right">
-                                <ul class="social-icons">
+                               <!--  <ul class="social-icons">
                                     <li><a href="#" class="fa fa-facebook"></a></li>
                                     <li><a href="#" class="fa fa-instagram"></a></li>
                                     <li><a href="#" class="fa fa-twitter"></a></li>
                                     <li><a href="#" class="fa fa-google-plus"></a></li>
-                                </ul>
+                                </ul> -->
                             </div> <!-- /.left-header -->
                         </div> <!-- /.col-md-6 -->
                     </div> <!-- /.row -->
@@ -68,7 +94,7 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-4 col-xs-6">
                             <div class="logo">
-                                <h1><a href="#" title="Dreri">Compass</a></h1>
+                                <h1><a href="#" title="Dreri">Logo</a></h1>
                             </div> <!-- /.logo -->
                         </div> <!-- /.col-md-4 -->
                         <div class="col-md-8 col-sm-8 col-xs-6">
@@ -93,7 +119,7 @@
                                 <li><a href="#portfolio">Portfolio</a></li>
                                 <li><a href="#about">About</a></li>
                                 <li><a href="#contact">Contact</a></li>
-                                <li><a href="http://www.facebook.com/templatemo" class="external">External</a></li>
+                                <li><a href="/booking.html" class="external">Book Now</a></li>
                             </ul>
                         </div> <!-- /.menu -->
                     </div> <!-- /.responsive-menu -->
@@ -108,7 +134,7 @@
                 <img src="images/banner01.jpg" alt="">
                 <div class="flex-caption">
                     <h2>Compass Template</h2>
-                    <span></span>
+                   
                     <p>Praesent tincidunt neque semper elementum gravida. Donec id euismod magna.<br>Ut erat ligula, malesuada eu quam a, fringilla auctor augue.</p>
                 </div>
             </li>
@@ -116,13 +142,13 @@
                 <img src="images/banner02.jpg" alt="">
                 <div class="flex-caption">
                     <h2>Responsive Mobile</h2>
-                    <span></span>
+                    
                     <p>Ea, similique, odit id consectetur est beatae quia dicta officiis ipsam itaque in<br>facilis aliquid quas officia voluptatem repellendus repellat!</p>
                 </div>
             </li>
         </ul>
     </div>
-
+    <div id="area">
     <div id="services" class="section-cotent">
         <div class="container">
             <div class="title-section text-center">
@@ -398,7 +424,7 @@
         </div> <!-- /.container -->
     </div> <!-- /.site-footer -->
 
- 
+    </div>
         
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
